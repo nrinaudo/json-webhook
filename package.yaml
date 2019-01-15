@@ -1,0 +1,51 @@
+name:                json-webhook
+version:             0.1.0.0
+github:              "nrinaudo/json-webhook"
+license:             BSD3
+author:              "Nicolas Rinaudo"
+maintainer:          "nicolas@nrinaudo.com"
+copyright:           "2019 Nicolas Rinaudo"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+description:         Please see the README on GitHub at <https://github.com/nrinaudo/json-webhook#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - time
+    - aeson
+    - text
+    - bson
+    - vector
+    - scientific
+    - unordered-containers
+    - mongoDB
+
+executables:
+  json-webhook-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+      - aeson
+      - json-webhook
+      - scotty
+      - http-types
+      - transformers
+      - time
+      - mongoDB
+      - text
+      - options
